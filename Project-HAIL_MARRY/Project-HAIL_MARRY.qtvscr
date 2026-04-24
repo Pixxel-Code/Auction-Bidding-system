@@ -1,0 +1,429 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" FontFamily="Segoe UI" FontSize="12">
+  <FlowDocument.Tag><![CDATA[{
+  "timestamp": "2026-04-19 23:56:49",
+  "files": {
+    "D:\\FAST\\SEM 2\\OOP\\Project-HAIL_MARRY\\Project-HAIL_MARRY\\Project-HAIL_MARRY.vcxproj": {
+      "before": "7VnbbuM2EN3nAv2DfRCEFE4eYvmSzaaNrEVip6lR54I4FxQosKAl2mZXEgWSyibb7Xf19zqUSMryJbaRbrIIkocAJg+Hw+HMmRnq37dv3rgf7qLQusWMExq37Hq1Zls49mlA4lHLTsVwe8/+4P34g3vO6F/YF1YHD1EaikvERljwln2YkjCwLZASw6+xEMkvjsP9MY4Qr0bEZ5TToaj6NHICfItDmmDmRHwglzmNWq1pg3TLcrsCR8eMponVQwMctmy1YZvGQzJKGRKgIM/BAJ83a3VjP0wD3LI7eJCOvt6QuNnQK2BNSZSXYVynPChVkX/ueYjEkLLIy4S4jvmdI2Agt8e85UuUu8AhRhwvUU+hnkPB3Hp3uzuPtR2I+CaWe0i1le22pnKuYzw0d1hwAHBlcV9y2uOQDlBYuOl1W/nJdR5hXn2vWnOdmWHlVb/j+8+UBbnTyZWuo4cUQok7Tkng/T3caTb3mniwPdyt727vDBs/byPf393ee1+vN4PBu/e7tcY/xlWzNUrMBaXiFEWYJ8jHnhL620G3d3JwcfGH65Tn1SIIhYB+5nno64AwB6vJgz0IkWIybQq7qdiPEsqEpdRo2Rub121FMOdIjLf+PDE80k6SqqKgagI3wG3LmXcfEJcBkZTRsisbm6Uo3fq6sam136q0WpUJtqjYmn5KS3QglCnk8j7B3kGShMTP2GkqVrNpZborjrNdemTAECOYe4Kl2HVmx9UCreAlpSHHwrut77wrYkmPKnB7jBjyBWZ9QF7FBOgbZJdGF9oejF5ch7WO2Uo89nSGG0J8/W+WuxnTEIMJRgxFZ4kgEfmSXaW6noXTz2p4w89PZ/SX461A+09ntpfiq931CLpMzPniUpo8uhM4lhUnEJaASlMlTMix2UYZdjI1lBb3ge1wkFPyais0x/XHGGpWey2WKyWHTCdIYrP2ACJnMml2CJtOVxPZppoCTOetCa7Fd4QLvgmZam05lS2TsnrURyHkow4SSOcPkx5XMu1jDDWVDl5NZbqWBQVHxkSvZlpsJu1RL89QOs5KvCZD/wTJhtkErWw5oNolcVbK5ugJ2livstWu1g7bNEpIiNUA8NkNYjHQcE826F72vwm1/ORgXvAAtN/ptcfY/6QqJPPTAM4ZBv73MeeUFbpz76Z72mzsf+wcHV4d739sn532z3pH+z9tLsBvyU5hviSzlazRoUdHsY9PoORVKk2PGngPxaMUjXBfoDhA0GZxEfhJ0oC+ZWYqXwRF9JSx3B6JPxWG66eD/j2HW/JgVw61pOsUQ2bjYxxjeMDIW4BurrPsTZTCC6e1EmbPvAktrDqZKB/pKjrYsveOStHwTJ1/PWf5NY19edDMpeQpwMnUoedOGYt1Y8EIVAi+humGac6EWWR8Ma9WzU8DWORQuWuevrrm9+maE/3OM3PYK3t95+xVKhWmuftFctcra31DlyzyK/iOcafiO8NBmqW3KlQRumZ7ENjH7Jb4eBW8GK8MPiTBcomdwxMUQ/HDlkNl1bkaamUVI0Ti5SJlBTyJmnlzLz/BZ6ZW33xm72RcupFFMH2CpejiPpZA5W0sgRR3sQSY3cQKmBVPkdl3ibhrFJIACcqKQ8xew3rPQSL/VqjvQ72elHof8yCknv3nv+6YTxnefw==",
+      "after": "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"
+    }
+  }
+}]]></FlowDocument.Tag>
+  <Section Margin="0,24" TextAlignment="Center">
+    <Paragraph FontSize="24" FontWeight="Bold" Margin="12,0">
+      <LineBreak />
+      <Span Foreground="Gray">Qt Visual Studio Tools</Span>
+    </Paragraph>
+    <Paragraph FontSize="42" Margin="12,0" FontWeight="Bold">
+      <Span TextDecorations="Underline">Project Format Conversion</Span>
+    </Paragraph>
+    <Paragraph Margin="12,8" FontSize="18">
+      <Span>Report generated on 2026-04-19 23:56:49</Span>
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Files</Span>
+    </Paragraph>
+    <Paragraph Margin="24,12,0,0">
+      <Span FontFamily="Consolas" FontSize="14" Background="WhiteSmoke"><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+      <LineBreak />
+      <Hyperlink NavigateUri="file://D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj?before">[Before]</Hyperlink>
+      <Hyperlink NavigateUri="file://D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj?after">[After]</Hyperlink>
+      <Hyperlink NavigateUri="file://D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj?diff&amp;before&amp;after">
+                        [Diff before/after]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj?diff&amp;before&amp;current">
+                        [Diff before/current]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj?diff&amp;after&amp;current">
+                        [Diff after/current]
+                    </Hyperlink>
+      <LineBreak />
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Changes</Span>
+    </Paragraph>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Enabling multi-processor compilation]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Project format version]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Keyword>QtVS_v304</Keyword>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Fallback for QTMSBUILD environment variable]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Default Qt properties]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt build settings]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Warn if Qt/MSBuild is not found]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  </Target>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt property sheet]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt targets]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[D:\FAST\SEM 2\OOP\Project-HAIL_MARRY\Project-HAIL_MARRY\Project-HAIL_MARRY.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+  </Section>
+  <Section>
+    <Paragraph />
+  </Section>
+</FlowDocument>
+<!--LNIhh06WouNjVv3savwXYUzGJ48y4A6BXONDlQMATeU=-->

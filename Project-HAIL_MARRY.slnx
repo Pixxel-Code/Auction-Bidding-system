@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Project-HAIL_MARRY/Project-HAIL_MARRY.vcxproj" Id="f43383eb-f616-4f29-acc6-87113db57602" />
+</Solution>
