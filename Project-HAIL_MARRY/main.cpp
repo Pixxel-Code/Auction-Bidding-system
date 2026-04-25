@@ -2,61 +2,126 @@
 #include "DBManager.h"
 #include "AuthService.h"
 #include "ItemService.h"
-#include "Auction.h"
+#include "AdminService.h"
 
 using namespace std;
 
 int main() {
 
-    cout << "Program started\n";
+   
+    // LOAD DATA
+    cout << "===== SYSTEM START =====\n";
 
-
+    cout << "Before DB instance\n";
     DBManager& db = DBManager::getInstance();
-    cout << "Before loading DB\n";
+    cout << "After DB instance\n";
+
+    cout << "Before loadUsers\n";
     db.loadUsers();
-    cout << "Users loaded\n";
+    cout << "After loadUsers\n";
 
+    cout << "Before loadItems\n";
     db.loadItems();
-    cout << "Items loaded\n";
+    cout << "After loadItems\n";
 
+    cout << "Before loadBids\n";
     db.loadBids();
-    cout << "Bids loaded\n";
+    cout << "After loadBids\n";
 
-    cout << "Data loaded\n";
+    cout << "Data Loaded\n";
 
+    // CREATE TEST USERS
+    AuthService::signup("admin", "123");
     AuthService::signup("user1", "123");
-    User user = AuthService::login("user1", "123");
+    AuthService::signup("user2", "123");
 
-    cout << "User ID: " << user.getId() << endl;
+    User admin = AuthService::login("admin", "123");
 
-    ItemService::createItem("Laptop", 1000, user.getId());
+    cout << "\nAdmin Logged In: " << admin.getUsername() << endl;
+
+    // CREATE ITEMS
+    ItemService::createItem("Laptop", 1000, admin.getId());
+    ItemService::createItem("Phone", 500, admin.getId());
+
+    // ==============================
+    // 🔥 ADMIN PANEL TESTING
+    // ==============================
 
     int count;
-    Item* items = db.getAllItems(count);
 
-    cout << "Items count: " << count << endl;
+    // 📊 VIEW USERS
+    cout << "\n--- USERS ---\n";
+    User* users = AdminService::getUsers(count);
 
-    if (count == 0) {
-        cout << "No items found!\n";
-        return 0;
+    for (int i = 0; i < count; i++) {
+        cout << "ID: " << users[i].getId()
+            << " Name: " << users[i].getUsername()
+            << endl;
     }
 
-    Auction auction(items[0]);
+    // 🗑 DELETE USER (delete second user if exists)
+    if (count > 1) {
+        int deleteId = users[1].getId();
 
-    cout << "Auction created\n";
+        cout << "\nDeleting User ID: " << deleteId << endl;
+        AdminService::deleteUser(deleteId);
+    }
 
-    auction.placeBid(Bid(user.getId(), items[0].getId(), 1200));
-    auction.placeBid(Bid(user.getId(), items[0].getId(), 1500));
+    // 📊 VIEW USERS AGAIN
+    cout << "\n--- USERS AFTER DELETE ---\n";
+    users = AdminService::getUsers(count);
 
+    for (int i = 0; i < count; i++) {
+        cout << "ID: " << users[i].getId()
+            << " Name: " << users[i].getUsername()
+            << endl;
+    }
 
-    cout << "Bids placed\n";
+    // ==============================
 
-    cout << "Highest Bid: "
-        << auction.getHighestBid().getAmount() << endl;
+    // 📊 VIEW ITEMS
+    cout << "\n--- ITEMS ---\n";
+    Item* items = AdminService::getItems(count);
 
-    cout << "Program ending\n";
+    for (int i = 0; i < count; i++) {
+        cout << "Item ID: " << items[i].getId()
+            << " Price: " << items[i].getCurrentPrice()
+            << endl;
+    }
 
-    system("pause"); // VERY IMPORTANT (Windows)
+    // 🗑 DELETE ITEM
+    if (count > 0) {
+        int deleteItemId = items[0].getId();
 
+        cout << "\nDeleting Item ID: " << deleteItemId << endl;
+        AdminService::deleteItem(deleteItemId);
+    }
+
+    // 📊 VIEW ITEMS AGAIN
+    cout << "\n--- ITEMS AFTER DELETE ---\n";
+    items = AdminService::getItems(count);
+
+    for (int i = 0; i < count; i++) {
+        cout << "Item ID: " << items[i].getId()
+            << " Price: " << items[i].getCurrentPrice()
+            << endl;
+    }
+
+    // ==============================
+
+    // 📊 VIEW BIDS (SYSTEM MONITORING)
+    cout << "\n--- BIDS ---\n";
+    Bid* bids = AdminService::getBids(count);
+
+    for (int i = 0; i < count; i++) {
+        cout << "User: " << bids[i].getUserId()
+            << " Item: " << bids[i].getItemId()
+            << " Amount: " << bids[i].getAmount()
+            << endl;
+    }
+
+    cout << "\n===== SYSTEM END =====\n";
+
+    system("pause");
     return 0;
 }

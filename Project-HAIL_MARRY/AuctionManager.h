@@ -2,16 +2,21 @@
 #include "Auction.h"
 
 class AuctionManager {
+
 private:
     Auction** auctions;
-    int count;
-
-    AuctionManager();
+    int auctionCount;
 
 public:
-    static AuctionManager& getInstance();
+    AuctionManager();
+    ~AuctionManager();
 
-    void addAuction(Auction* auction);
-    void update();        // called every second
-    void closeExpired();
+    void addAuction(Item item);
+    Auction* getAuctionByItemId(int itemId);
+
+    void removeAuction(int itemId);
+
+    void checkAllAuctions();
+
+    void showAllAuctions(int& count);
 };

@@ -20,6 +20,13 @@ public:
     DBManager();
     ~DBManager();
 
+    // ADMIN SUPPORT (ADD THESE)
+    User* getAllUsers(int& count);
+    void removeUserById(int id);
+
+    void removeItemById(int id);
+
+    Bid* getAllBids(int& count);
     // USER
     void addUser(User user);
     User getUser(const char* username);
@@ -45,7 +52,17 @@ public:
     int generateUserId();
     int generateItemId();
     Item* searchByPrice(double min, double max, int& count);
+    // ADMIN SUPPORT
+    User* getAllUsers(int& count);
+    void removeUserById(int id);
+    void removeItemById(int id);
+    Bid* getAllBids(int& count);
+
+    // FILE REWRITE
+    void rewriteUsersFile();
+    void rewriteItemsFile();
+    void rewriteBidsFile();
+
+    // CASCADE DELETE
+    void removeBidsByItemId(int itemId);
 };
-int generateUserId();
-int generateItemId();
-Item* searchByPrice(double min, double max, int& count);

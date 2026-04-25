@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdminService.cpp" />
     <ClCompile Include="Auction.cpp" />
     <ClCompile Include="AuctionService.cpp" />
     <ClCompile Include="AuthService.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminService.h" />
     <ClInclude Include="Auction.h" />
     <ClInclude Include="AuctionService.h" />
     <ClInclude Include="AuthService.h" />

@@ -1,22 +1,19 @@
 #include "Auction.h"
-#include "DBManager.h"
-#include<iostream>
+#include <iostream>
 
-Bid* Auction::getAllBids(int& count) {
-    return DBManager::getInstance().getBidsForItem(item.getId(), count);
-}
+using namespace std;
+
 Auction::Auction(Item item) {
     this->item = item;
-    bids = nullptr;
-    bidCount = 0;
     isActive = true;
 }
+
 Item Auction::getItem() {
     return item;
 }
 
-Auction::~Auction() {
-    delete[] bids;
+bool Auction::isActiveAuction() {
+    return isActive;
 }
 bool Auction::placeBid(Bid bid) {
 
@@ -30,20 +27,10 @@ bool Auction::placeBid(Bid bid) {
         return false;
     }
 
-    Bid* temp = new Bid[bidCount + 1];
-
-    for (int i = 0; i < bidCount; i++)
-        temp[i] = bids[i];
-
-    temp[bidCount] = bid;
-
-    delete[] bids;
-    bids = temp;
-
-    bidCount++;
-
+    // update item price
     item.updatePrice(bid.getAmount());
 
+    // store ONLY in DB (single source of truth)
     DBManager::getInstance().addBid(bid);
 
     cout << "Bid accepted: " << bid.getAmount() << endl;
@@ -52,15 +39,20 @@ bool Auction::placeBid(Bid bid) {
 }
 Bid Auction::getHighestBid() {
 
-    if (bidCount == 0)
+    int count = 0;
+    Bid* bids = DBManager::getInstance().getBidsForItem(item.getId(), count);
+
+    if (count == 0)
         return Bid();
 
     Bid highest = bids[0];
 
-    for (int i = 1; i < bidCount; i++) {
+    for (int i = 1; i < count; i++) {
         if (bids[i].getAmount() > highest.getAmount())
             highest = bids[i];
     }
+
+    delete[] bids;
 
     return highest;
 }
@@ -80,6 +72,7 @@ void Auction::closeAuction() {
     }
 }
 void Auction::checkAndClose() {
+
     if (item.isExpired() && isActive) {
         closeAuction();
     }
