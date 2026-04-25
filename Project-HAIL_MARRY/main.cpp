@@ -8,46 +8,51 @@ using namespace std;
 
 int main() {
 
-   
-    // LOAD DATA
     cout << "===== SYSTEM START =====\n";
 
-    cout << "Before DB instance\n";
     DBManager& db = DBManager::getInstance();
-    cout << "After DB instance\n";
 
-    cout << "Before loadUsers\n";
+    // LOAD DATA FROM FILES
     db.loadUsers();
-    cout << "After loadUsers\n";
-
-    cout << "Before loadItems\n";
     db.loadItems();
-    cout << "After loadItems\n";
-
-    cout << "Before loadBids\n";
     db.loadBids();
-    cout << "After loadBids\n";
 
     cout << "Data Loaded\n";
 
-    // CREATE TEST USERS
-    AuthService::signup("admin", "123");
-    AuthService::signup("user1", "123");
-    AuthService::signup("user2", "123");
+    int count;
 
+    // ==============================
+    // 🔥 CREATE DATA ONLY IF EMPTY
+    // ==============================
+
+    User* usersCheck = db.getAllUsers(count);
+
+    if (count == 0) {
+        cout << "Creating default users...\n";
+
+        AuthService::signup("admin", "123");
+        AuthService::signup("user1", "123");
+        AuthService::signup("user2", "123");
+    }
+
+    // LOGIN ADMIN
     User admin = AuthService::login("admin", "123");
 
     cout << "\nAdmin Logged In: " << admin.getUsername() << endl;
 
-    // CREATE ITEMS
-    ItemService::createItem("Laptop", 1000, admin.getId());
-    ItemService::createItem("Phone", 500, admin.getId());
+    // CREATE ITEMS ONLY IF EMPTY
+    Item* itemsCheck = db.getAllItems(count);
+
+    if (count == 0) {
+        cout << "Creating default items...\n";
+
+        ItemService::createItem("Laptop", 1000, admin.getId());
+        ItemService::createItem("Phone", 500, admin.getId());
+    }
 
     // ==============================
     // 🔥 ADMIN PANEL TESTING
     // ==============================
-
-    int count;
 
     // 📊 VIEW USERS
     cout << "\n--- USERS ---\n";
@@ -59,13 +64,14 @@ int main() {
             << endl;
     }
 
-    // 🗑 DELETE USER (delete second user if exists)
+    // 🗑 DELETE USER
     if (count > 1) {
         int deleteId = users[1].getId();
 
         cout << "\nDeleting User ID: " << deleteId << endl;
-        AdminService::deleteUser(deleteId);
+        AdminService::deleteUser(deleteId, admin);
     }
+ 
 
     // 📊 VIEW USERS AGAIN
     cout << "\n--- USERS AFTER DELETE ---\n";
@@ -94,9 +100,9 @@ int main() {
         int deleteItemId = items[0].getId();
 
         cout << "\nDeleting Item ID: " << deleteItemId << endl;
-        AdminService::deleteItem(deleteItemId);
+        AdminService::deleteItem(deleteItemId, admin);
     }
-
+    
     // 📊 VIEW ITEMS AGAIN
     cout << "\n--- ITEMS AFTER DELETE ---\n";
     items = AdminService::getItems(count);
@@ -109,7 +115,7 @@ int main() {
 
     // ==============================
 
-    // 📊 VIEW BIDS (SYSTEM MONITORING)
+    // 📊 VIEW BIDS
     cout << "\n--- BIDS ---\n";
     Bid* bids = AdminService::getBids(count);
 

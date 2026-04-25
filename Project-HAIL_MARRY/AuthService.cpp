@@ -3,8 +3,17 @@
 #include <cstdlib>
 
 bool AuthService::signup(string username, string password) {
-    User user(rand(), username, password, "buyer");
+
+    string role = "buyer";
+
+    if (username == "admin") {
+        role = "admin";   // 🔥 FIX
+    }
+
+    User user(DBManager::getInstance().generateUserId(), username, password, role);
+
     DBManager::getInstance().addUser(user);
+
     return true;
 }
 

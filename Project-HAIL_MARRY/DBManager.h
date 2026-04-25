@@ -52,12 +52,7 @@ public:
     int generateUserId();
     int generateItemId();
     Item* searchByPrice(double min, double max, int& count);
-    // ADMIN SUPPORT
-    User* getAllUsers(int& count);
-    void removeUserById(int id);
-    void removeItemById(int id);
-    Bid* getAllBids(int& count);
-
+   
     // FILE REWRITE
     void rewriteUsersFile();
     void rewriteItemsFile();

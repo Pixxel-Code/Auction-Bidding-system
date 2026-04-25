@@ -1,4 +1,5 @@
 #include "AdminService.h"
+#include<iostream>
 
 // VIEW
 User* AdminService::getUsers(int& count) {
@@ -16,25 +17,37 @@ Bid* AdminService::getBids(int& count) {
 // DELETE USER
 bool AdminService::deleteUser(int id, User currentUser) {
 
-    if (currentUser.getRole() != "admin")
+    if (currentUser.getRole() != "admin") {
+        cout << "Access denied\n";
         return false;
+    }
 
-    DBManager::getInstance().removeUserById(id);
-    DBManager::getInstance().rewriteUsersFile();   // 🔥 important
+    DBManager& db = DBManager::getInstance();
+
+    db.removeUserById(id);
+    db.rewriteUsersFile();
+
+    cout << "User deleted successfully\n";
 
     return true;
 }
-
 // DELETE ITEM
 bool AdminService::deleteItem(int id, User currentUser) {
 
-    if (currentUser.getRole() != "admin")
+    if (currentUser.getRole() != "admin") {
+        cout << "Access denied\n";
         return false;
+    }
 
-    DBManager::getInstance().removeItemById(id);
-    DBManager::getInstance().removeBidsByItemId(id); // 🔥 cascade delete
-    DBManager::getInstance().rewriteItemsFile();
-    DBManager::getInstance().rewriteBidsFile();
+    DBManager& db = DBManager::getInstance();
+
+    db.removeItemById(id);
+    db.removeBidsByItemId(id);
+
+    db.rewriteItemsFile();
+    db.rewriteBidsFile();
+
+    cout << "Item deleted successfully\n";
 
     return true;
 }

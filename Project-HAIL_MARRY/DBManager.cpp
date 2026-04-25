@@ -103,6 +103,10 @@ Bid* DBManager::getBidsForItem(int itemId, int& count) {
 }
 void DBManager::loadUsers() {
 
+    delete[] users;
+    users = nullptr;
+    userCount = 0;
+
     std::ifstream file("users.txt");
 
     if (!file.is_open()) {
@@ -113,16 +117,7 @@ void DBManager::loadUsers() {
     int id;
     string username, password, role;
 
-    while (true) {
-
-        file >> id >> username >> password >> role;
-
-        if (file.fail()) {
-            std::cout << "File read ended or corrupted\n";
-            break;
-        }
-
-        std::cout << "Reading user: " << username << endl;
+    while (file >> id >> username >> password >> role) {
 
         User user(id, username, password, role);
 
@@ -143,6 +138,9 @@ void DBManager::loadUsers() {
 }
 void DBManager::loadItems() {
 
+    delete[] items;
+    items = nullptr;
+    itemCount = 0;
     std::ifstream file("items.txt");
 
     if (!file.is_open()) {
@@ -176,6 +174,9 @@ void DBManager::loadItems() {
 }
 void DBManager::loadBids() {
 
+    delete[] bids;
+    bids = nullptr;
+    bidCount = 0;
     std::ifstream file("bids.txt");
 
     if (!file.is_open()) {
