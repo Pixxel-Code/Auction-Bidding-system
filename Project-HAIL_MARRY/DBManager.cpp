@@ -16,12 +16,19 @@ DBManager::DBManager() {
 
     bids = nullptr;
     bidCount = 0;
+
+    maxUserId = 0;
+    maxItemId = 0;
+
+    notifications = nullptr;
+    notificationCount = 0;
 }
 
 DBManager::~DBManager() {
     delete[] users;
     delete[] items;
     delete[] bids;
+    delete[] notifications;
 }
 void DBManager::addUser(User user) {
 
@@ -116,10 +123,20 @@ void DBManager::loadUsers() {
 
     int id;
     string username, password, role;
+    double totalRating;
+    int ratingCount;
 
-    while (file >> id >> username >> password >> role) {
+    while (file >> id >> username >> password >> role >> totalRating >> ratingCount)
+    {
+
+        if (id > maxUserId) {
+            maxUserId = id;
+        }
 
         User user(id, username, password, role);
+
+        for (int r = 0; r < ratingCount; r++)
+            user.addRating(totalRating / ratingCount);
 
         User* temp = new User[userCount + 1];
 
@@ -149,12 +166,16 @@ void DBManager::loadItems() {
     }
 
     int id, sellerId;
-    string title;
+    string title,category;
     double base, current;
 
-    while (file >> id >> title >> base >> current >> sellerId) {
+    while (file >> id >> title >> base >> current >> sellerId >> category) {
 
-        Item item(id, title, base, sellerId);
+        if (id > maxItemId) {
+            maxItemId = id;
+        }
+
+        Item item(id, title, base, sellerId, category);
         item.updatePrice(current);
 
         Item* temp = new Item[itemCount + 1];
@@ -213,7 +234,9 @@ void DBManager::saveUser(User user) {
     file << user.getId() << " "
         << user.getUsername() << " "
         << user.getPassword() << " "
-        << user.getRole() << "\n";
+        << user.getRole() << " "
+        << user.getTotalRating() << " "   
+        << user.getRatingCount() << "\n";
 
     file.close();
 }
@@ -222,10 +245,11 @@ void DBManager::saveItem(Item item) {
     std::ofstream file("items.txt", std::ios::app);
 
     file << item.getId() << " "
-        << "Item "
+        << item.getTitle() << " "
+        << item.getBasePrice() << " "
         << item.getCurrentPrice() << " "
-        << item.getCurrentPrice() << " "
-        << 1 << "\n";
+        << item.getSellerId() << " "
+        << item.getCategory() << "\n";
 
     file.close();
 }
@@ -241,11 +265,11 @@ void DBManager::saveBid(Bid bid) {
 }
 
 int DBManager::generateUserId() {
-    return userCount + 1000;
+    return ++maxUserId;
 }
 
 int DBManager::generateItemId() {
-    return itemCount + 5000;
+    return ++maxItemId;
 }
 
 
@@ -337,7 +361,9 @@ void DBManager::rewriteUsersFile() {
         file << users[i].getId() << " "
             << users[i].getUsername() << " "
             << users[i].getPassword() << " "
-            << users[i].getRole() << "\n";
+            << users[i].getRole() << " "
+            << users[i].getTotalRating() << " "
+            << users[i].getRatingCount() << "\n";
     }
 
     file.close();
@@ -348,10 +374,11 @@ void DBManager::rewriteItemsFile() {
 
     for (int i = 0; i < itemCount; i++) {
         file << items[i].getId() << " "
-            << "Item "
+            << items[i].getTitle() << " "
+            << items[i].getBasePrice() << " "
             << items[i].getCurrentPrice() << " "
-            << items[i].getCurrentPrice() << " "
-            << 1 << "\n";
+            << items[i].getSellerId() << " "
+            << items[i].getCategory() << "\n";
     }
 
     file.close();
@@ -388,4 +415,88 @@ void DBManager::removeBidsByItemId(int itemId) {
     delete[] bids;
     bids = temp;
     bidCount = newCount;
+}
+Item* DBManager::searchByTitle(string title, int& count) {
+    int c = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (items[i].getTitle().find(title) != string::npos)
+            c++;
+    }
+    Item* result = new Item[c];
+    int index = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (items[i].getTitle().find(title) != string::npos)
+            result[index++] = items[i];
+    }
+    count = c;
+    return result;
+}
+Item* DBManager::searchByCategory(string category, int& count) {
+    int c = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (items[i].getCategory() == category)
+            c++;
+    }
+    Item* result = new Item[c];
+    int index = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (items[i].getCategory() == category)
+            result[index++] = items[i];
+    }
+    count = c;
+    return result;
+}
+Item* DBManager::getActiveItems(int& count) {
+    int c = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (!items[i].isExpired())
+            c++;
+    }
+    Item* result = new Item[c];
+    int index = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (!items[i].isExpired())
+            result[index++] = items[i];
+    }
+    count = c;
+    return result;
+}
+Item* DBManager::getExpiredItems(int& count) {
+    int c = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (items[i].isExpired())
+            c++;
+    }
+    Item* result = new Item[c];
+    int index = 0;
+    for (int i = 0; i < itemCount; i++) {
+        if (items[i].isExpired())
+            result[index++] = items[i];
+    }
+    count = c;
+    return result;
+}
+void DBManager::addNotification(Notification n) {
+    Notification* temp = new Notification[notificationCount + 1];
+    for (int i = 0; i < notificationCount; i++)
+        temp[i] = notifications[i];
+    temp[notificationCount] = n;
+    delete[] notifications;
+    notifications = temp;
+    notificationCount++;
+}
+Notification* DBManager::getNotificationsForUser(int userId, int& count) {
+    int c = 0;
+    for (int i = 0; i < notificationCount; i++) {
+        if (notifications[i].getUserId() == userId)
+            c++;
+    }
+    Notification* result = new Notification[c];
+    int index = 0;
+    for (int i = 0; i < notificationCount; i++) {
+        if (notifications[i].getUserId() == userId)
+            result[index++] = notifications[i];
+    }
+    count = c;
+    return result;
 }

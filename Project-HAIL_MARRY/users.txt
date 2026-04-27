@@ -1,3 +1,1 @@
-41 admin 123 buyer
-18467 user1 123 buyer
-6334 user2 123 buyer
+1 admin 123 admin 0 0

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 using namespace std;
-string getPassword();
+//string getPassword();
 class User {
 private:
 private:
@@ -23,4 +23,6 @@ public:
     string getPassword();
     double getReputation();
     void addRating(double rating);
+    double getTotalRating();
+    int getRatingCount();
 };

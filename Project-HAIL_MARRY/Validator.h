@@ -12,4 +12,7 @@ public:
     static bool isValidPrice(double price) {
         return price > 0;
     }
+    static bool isValidRole(string role) {
+        return role == "buyer" || role == "seller";
+    }
 };

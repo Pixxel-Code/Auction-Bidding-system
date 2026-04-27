@@ -8,6 +8,8 @@ private:
     string message;
 
 public:
+    Notification();
     Notification(int uid, string msg);
     string getMessage();
+    int getUserId();
 };

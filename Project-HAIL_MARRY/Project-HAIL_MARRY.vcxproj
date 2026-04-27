@@ -130,6 +130,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4966</DisableSpecificWarnings>
+      <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +163,6 @@
     <ClCompile Include="DBManager.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemService.cpp" />
-    <ClCompile Include="loginWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="notification.cpp" />
     <ClCompile Include="AuctionManager.cpp" />
@@ -178,12 +179,11 @@
     <ClInclude Include="notification.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemService.h" />
-    <QtMoc Include="loginWindow.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Validator.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="loginWindow.ui" />
+    <Text Include="users.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

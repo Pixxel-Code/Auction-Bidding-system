@@ -42,9 +42,6 @@
     <ClCompile Include="ItemService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="loginWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="notification.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -94,11 +91,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="loginWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="loginWindow.ui" />
+    <Text Include="users.txt" />
   </ItemGroup>
 </Project>

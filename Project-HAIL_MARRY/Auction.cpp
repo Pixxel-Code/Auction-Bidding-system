@@ -27,14 +27,18 @@ bool Auction::placeBid(Bid bid) {
         return false;
     }
 
-    // update item price
-    item.updatePrice(bid.getAmount());
+    Bid previousHighest = getHighestBid();
 
-    // store ONLY in DB (single source of truth)
+    // NOTIFY outbid user
+    if (previousHighest.getAmount() > 0 && previousHighest.getUserId() != bid.getUserId()) {
+        string msg = "You have been outbid on: " + item.getTitle();
+        DBManager::getInstance().addNotification(Notification(previousHighest.getUserId(), msg));
+    }
+
+    item.updatePrice(bid.getAmount());
     DBManager::getInstance().addBid(bid);
 
     cout << "Bid accepted: " << bid.getAmount() << endl;
-
     return true;
 }
 Bid Auction::getHighestBid() {
@@ -66,6 +70,10 @@ void Auction::closeAuction() {
 
     if (winner.getAmount() > 0) {
         cout << "Winner User ID: " << winner.getUserId() << endl;
+
+        // NOTIFY winner
+        string msg = "Congratulations! You won the auction for: " + item.getTitle();
+        DBManager::getInstance().addNotification(Notification(winner.getUserId(), msg));
     }
     else {
         cout << "No bids placed.\n";

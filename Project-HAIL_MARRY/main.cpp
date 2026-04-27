@@ -30,9 +30,9 @@ int main() {
     if (count == 0) {
         cout << "Creating default users...\n";
 
-        AuthService::signup("admin", "123");
-        AuthService::signup("user1", "123");
-        AuthService::signup("user2", "123");
+        AuthService::signup("admin", "123", "admin");
+        AuthService::signup("user1", "123", "buyer");
+        AuthService::signup("user2", "123", "seller");
     }
 
     // LOGIN ADMIN
@@ -46,8 +46,9 @@ int main() {
     if (count == 0) {
         cout << "Creating default items...\n";
 
-        ItemService::createItem("Laptop", 1000, admin.getId());
-        ItemService::createItem("Phone", 500, admin.getId());
+        User seller = AuthService::login("user2", "123");
+        ItemService::createItem("Laptop", 1000, seller.getId(), "Electronics", seller);
+        ItemService::createItem("Phone", 500, seller.getId(), "Phones", seller);
     }
 
     // ==============================

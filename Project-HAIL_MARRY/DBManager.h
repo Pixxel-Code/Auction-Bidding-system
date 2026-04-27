@@ -2,6 +2,7 @@
 #include "User.h"
 #include "Item.h"
 #include "Bid.h"
+#include"notification.h"
 
 class DBManager {
 private:
@@ -13,6 +14,12 @@ private:
 
     Bid* bids;
     int bidCount;
+
+    int maxUserId;
+    int maxItemId;
+
+    Notification* notifications;
+    int notificationCount;
 
 public:
     static DBManager& getInstance();
@@ -57,6 +64,14 @@ public:
     void rewriteUsersFile();
     void rewriteItemsFile();
     void rewriteBidsFile();
+
+    Item* searchByTitle(string title, int& count);
+    Item* searchByCategory(string category, int& count);
+    Item* getActiveItems(int& count);
+    Item* getExpiredItems(int& count);
+
+    void addNotification(Notification n);
+    Notification* getNotificationsForUser(int userId, int& count);
 
     // CASCADE DELETE
     void removeBidsByItemId(int itemId);

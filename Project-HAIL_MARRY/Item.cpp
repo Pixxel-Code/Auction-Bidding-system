@@ -6,13 +6,18 @@ Item::Item() {
     basePrice = 0;
     currentPrice = 0;
     sellerId = 0;
+    duration = 0;
+    startTime = 0;
+    category = "";
+    isActive = false;
 }
-Item::Item(int id, string title, double base, int seller) {
+Item::Item(int id, string title, double base, int seller,string category) {
     this->id = id;
     this->title = title;
     this->basePrice = base;
     this->currentPrice = base;
     this->sellerId = seller;
+    this->category = category;
 
     duration = 60; // default 60 sec (change later)
     startTime = time(0);
@@ -27,3 +32,8 @@ bool Item::isExpired() {
 }
 double Item::getCurrentPrice() { return currentPrice; }
 int Item::getId() { return id; }
+string Item::getTitle() { return title; }
+double Item::getBasePrice() { return basePrice; }
+int Item::getSellerId() { return sellerId; }
+string Item::getCategory() { return category ; }
+void Item::setCategory(string cat) { category = cat; }

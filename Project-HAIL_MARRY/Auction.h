@@ -2,6 +2,7 @@
 #include "Item.h"
 #include "Bid.h"
 #include "DBManager.h"
+#include"notification.h"
 
 class Auction {
 private:

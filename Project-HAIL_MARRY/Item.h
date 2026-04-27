@@ -10,6 +10,7 @@ private:
     double basePrice;
     double currentPrice;
     int sellerId;
+    string category;
 
     int duration;
     time_t startTime;
@@ -17,11 +18,17 @@ private:
 
 public:
     Item();
-    Item(int id, string t, double b, int seller);
+    Item(int id, string t, double b, int seller,string category);
 
     void updatePrice(double newPrice);
     double getCurrentPrice();
     int getId();
+    string getTitle();
+    double getBasePrice();
+    int getSellerId();
+    string getCategory();
+    void setCategory(string cat);
+
 
     bool isExpired();
 };

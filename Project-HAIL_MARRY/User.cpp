@@ -5,6 +5,8 @@ User::User() {
     username = "";
     password = "";
     role = "";
+    totalRating = 0;
+    ratingCount = 0;
 }
 
 User::User(int id, string u, string p, string r) {
@@ -31,6 +33,6 @@ double User::getReputation() {
 int User::getId() { return id; }
 string User::getUsername() { return username; }
 string User::getRole() { return role; }
-string User::getPassword() {
-    return password;
-}
+string User::getPassword() {return password; }
+double User::getTotalRating() {return totalRating; }
+int User::getRatingCount() {return ratingCount; }
