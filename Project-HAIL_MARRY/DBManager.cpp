@@ -109,85 +109,94 @@ Bid* DBManager::getBidsForItem(int itemId, int& count) {
     return result;
 }
 void DBManager::loadUsers() {
-
     delete[] users;
     users = nullptr;
     userCount = 0;
 
     std::ifstream file("users.txt");
-
     if (!file.is_open()) {
         std::cout << "users.txt not found\n";
         return;
     }
 
-    int id;
-    string username, password, role;
-    double totalRating;
-    int ratingCount;
+    string line;
+    while (getline(file, line)) {
+        if (line.empty()) continue;
 
-    while (file >> id >> username >> password >> role >> totalRating >> ratingCount)
-    {
-
-        if (id > maxUserId) {
-            maxUserId = id;
+        string fields[7];
+        int fi = 0;
+        for (int i = 0; i < (int)line.size(); i++) {
+            if (line[i] == '|' && fi < 6) fi++;
+            else fields[fi] += line[i];
         }
 
-        User user(id, username, password, role);
+        int    id = stoi(fields[0]);
+        string username = fields[1];
+        string password = fields[2];
+        string role = fields[3];
+        double totalRating = stod(fields[4]);
+        int    ratingCount = stoi(fields[5]);
 
-        for (int r = 0; r < ratingCount; r++)
-            user.addRating(totalRating / ratingCount);
+        if (id > maxUserId) maxUserId = id;
+
+        User user(id, username, password, role);
+        if (ratingCount > 0)
+            user.addRating(totalRating);
+        user.setWatchlistData(fields[6]);
 
         User* temp = new User[userCount + 1];
-
         for (int i = 0; i < userCount; i++)
             temp[i] = users[i];
-
         temp[userCount] = user;
-
         delete[] users;
         users = temp;
-
         userCount++;
     }
-
     file.close();
 }
 void DBManager::loadItems() {
-
     delete[] items;
     items = nullptr;
     itemCount = 0;
-    std::ifstream file("items.txt");
 
+    std::ifstream file("items.txt");
     if (!file.is_open()) {
         std::cout << "items.txt not found\n";
         return;
     }
 
-    int id, sellerId;
-    string title,category;
-    double base, current;
+    string line;
+    while (getline(file, line)) {
+        if (line.empty()) continue;
 
-    while (file >> id >> title >> base >> current >> sellerId >> category) {
-
-        if (id > maxItemId) {
-            maxItemId = id;
+        string fields[8];
+        int fi = 0;
+        for (int i = 0; i < (int)line.size(); i++) {
+            if (line[i] == '|' && fi < 7) fi++;
+            else fields[fi] += line[i];
         }
 
-        Item item(id, title, base, sellerId, category);
+        int    id = stoi(fields[0]);
+        string title = fields[1];
+        double base = stod(fields[2]);
+        double current = stod(fields[3]);
+        int    sellerId = stoi(fields[4]);
+        string category = fields[5];
+        int    duration = stoi(fields[6]);
+        time_t startTime = (time_t)stoll(fields[7]);
+
+        if (id > maxItemId) maxItemId = id;
+
+        Item item(id, title, base, sellerId, category, duration);
         item.updatePrice(current);
+        item.setStartTime(startTime);
 
         Item* temp = new Item[itemCount + 1];
-
         for (int i = 0; i < itemCount; i++)
             temp[i] = items[i];
-
         temp[itemCount] = item;
-
         delete[] items;
         items = temp;
-
         itemCount++;
     }
 
@@ -228,29 +237,26 @@ void DBManager::loadBids() {
     file.close();
 }
 void DBManager::saveUser(User user) {
-
     std::ofstream file("users.txt", std::ios::app);
-
-    file << user.getId() << " "
-        << user.getUsername() << " "
-        << user.getPassword() << " "
-        << user.getRole() << " "
-        << user.getTotalRating() << " "   
-        << user.getRatingCount() << "\n";
-
+    file << user.getId() << "|"
+        << user.getUsername() << "|"
+        << user.getPassword() << "|"
+        << user.getRole() << "|"
+        << user.getTotalRating() << "|"
+        << user.getRatingCount() << "|"
+        << user.getWatchlistData() << "\n";
     file.close();
 }
 void DBManager::saveItem(Item item) {
-
     std::ofstream file("items.txt", std::ios::app);
-
-    file << item.getId() << " "
-        << item.getTitle() << " "
-        << item.getBasePrice() << " "
-        << item.getCurrentPrice() << " "
-        << item.getSellerId() << " "
-        << item.getCategory() << "\n";
-
+    file << item.getId() << "|"
+        << item.getTitle() << "|"
+        << item.getBasePrice() << "|"
+        << item.getCurrentPrice() << "|"
+        << item.getSellerId() << "|"
+        << item.getCategory() << "|"
+        << item.getDuration() << "|"
+        << (long long)item.getStartTime() << "\n";
     file.close();
 }
 void DBManager::saveBid(Bid bid) {
@@ -354,33 +360,30 @@ Bid* DBManager::getAllBids(int& count) {
     return bids;
 }
 void DBManager::rewriteUsersFile() {
-
     std::ofstream file("users.txt");
-
     for (int i = 0; i < userCount; i++) {
-        file << users[i].getId() << " "
-            << users[i].getUsername() << " "
-            << users[i].getPassword() << " "
-            << users[i].getRole() << " "
-            << users[i].getTotalRating() << " "
-            << users[i].getRatingCount() << "\n";
+        file << users[i].getId() << "|"
+            << users[i].getUsername() << "|"
+            << users[i].getPassword() << "|"
+            << users[i].getRole() << "|"
+            << users[i].getTotalRating() << "|"
+            << users[i].getRatingCount() << "|"
+            << users[i].getWatchlistData() << "\n";
     }
-
     file.close();
 }
 void DBManager::rewriteItemsFile() {
-
     std::ofstream file("items.txt");
-
     for (int i = 0; i < itemCount; i++) {
-        file << items[i].getId() << " "
-            << items[i].getTitle() << " "
-            << items[i].getBasePrice() << " "
-            << items[i].getCurrentPrice() << " "
-            << items[i].getSellerId() << " "
-            << items[i].getCategory() << "\n";
+        file << items[i].getId() << "|"
+            << items[i].getTitle() << "|"
+            << items[i].getBasePrice() << "|"
+            << items[i].getCurrentPrice() << "|"
+            << items[i].getSellerId() << "|"
+            << items[i].getCategory() << "|"
+            << items[i].getDuration() << "|"
+            << (long long)items[i].getStartTime() << "\n";
     }
-
     file.close();
 }
 void DBManager::rewriteBidsFile() {
@@ -484,6 +487,7 @@ void DBManager::addNotification(Notification n) {
     delete[] notifications;
     notifications = temp;
     notificationCount++;
+    saveNotification(n);
 }
 Notification* DBManager::getNotificationsForUser(int userId, int& count) {
     int c = 0;
@@ -499,4 +503,60 @@ Notification* DBManager::getNotificationsForUser(int userId, int& count) {
     }
     count = c;
     return result;
+}
+void DBManager::saveNotification(Notification n) {
+    std::ofstream file("notifications.txt", std::ios::app);
+    file << n.getUserId() << "|" << n.getMessage() << "\n";
+    file.close();
+}
+
+void DBManager::loadNotifications() {
+    delete[] notifications;
+    notifications = nullptr;
+    notificationCount = 0;
+
+    std::ifstream file("notifications.txt");
+    if (!file.is_open()) return;
+
+    string line;
+    while (getline(file, line)) {
+        if (line.empty()) continue;
+
+        string fields[2];
+        int fi = 0;
+        for (int i = 0; i < (int)line.size(); i++) {
+            if (line[i] == '|' && fi < 1) fi++;
+            else fields[fi] += line[i];
+        }
+
+        int    userId = stoi(fields[0]);
+        string msg = fields[1];
+
+        Notification n(userId, msg);
+        Notification* temp = new Notification[notificationCount + 1];
+        for (int i = 0; i < notificationCount; i++)
+            temp[i] = notifications[i];
+        temp[notificationCount] = n;
+        delete[] notifications;
+        notifications = temp;
+        notificationCount++;
+    }
+    file.close();
+}
+
+void DBManager::rewriteNotificationsFile() {
+    std::ofstream file("notifications.txt");
+    for (int i = 0; i < notificationCount; i++)
+        file << notifications[i].getUserId() << "|"
+        << notifications[i].getMessage() << "\n";
+    file.close();
+}
+void DBManager::updateUser(User updatedUser) {
+    for (int i = 0; i < userCount; i++) {
+        if (users[i].getId() == updatedUser.getId()) {
+            users[i] = updatedUser;
+            break;
+        }
+    }
+    rewriteUsersFile();
 }

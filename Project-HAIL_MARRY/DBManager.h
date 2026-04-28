@@ -75,4 +75,10 @@ public:
 
     // CASCADE DELETE
     void removeBidsByItemId(int itemId);
+
+    void loadNotifications();
+    void rewriteNotificationsFile();
+    void saveNotification(Notification n);
+
+    void updateUser(User updatedUser);
 };

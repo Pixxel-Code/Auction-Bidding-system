@@ -61,22 +61,44 @@ Bid Auction::getHighestBid() {
     return highest;
 }
 void Auction::closeAuction() {
-
     if (!isActive) return;
-
     isActive = false;
 
     Bid winner = getHighestBid();
 
     if (winner.getAmount() > 0) {
-        cout << "Winner User ID: " << winner.getUserId() << endl;
+        cout << "Winner User ID: " << winner.getUserId()
+            << " with bid $" << winner.getAmount() << endl;
 
-        // NOTIFY winner
-        string msg = "Congratulations! You won the auction for: " + item.getTitle();
-        DBManager::getInstance().addNotification(Notification(winner.getUserId(), msg));
+        // Notify winner
+        string winMsg = "Congratulations! You won the auction for: "
+            + item.getTitle()
+            + " at $" + to_string((int)winner.getAmount());
+        DBManager::getInstance().addNotification(Notification(winner.getUserId(), winMsg));
+
+        // Notify seller
+        string sellMsg = "Your item \"" + item.getTitle()
+            + "\" was sold for $" + to_string((int)winner.getAmount());
+        DBManager::getInstance().addNotification(Notification(item.getSellerId(), sellMsg));
+
+        // Rate buyer and seller
+        DBManager& db = DBManager::getInstance();
+        int count = 0;
+        User* allUsers = db.getAllUsers(count);
+
+        for (int i = 0; i < count; i++) {
+            if (allUsers[i].getId() == winner.getUserId() ||
+                allUsers[i].getId() == item.getSellerId()) {
+                allUsers[i].addRating(4.0);
+                db.updateUser(allUsers[i]);
+            }
+        }
+
     }
     else {
-        cout << "No bids placed.\n";
+        cout << "Auction closed with no bids: " << item.getTitle() << endl;
+        string noSaleMsg = "Your auction for \"" + item.getTitle() + "\" ended with no bids.";
+        DBManager::getInstance().addNotification(Notification(item.getSellerId(), noSaleMsg));
     }
 }
 void Auction::checkAndClose() {

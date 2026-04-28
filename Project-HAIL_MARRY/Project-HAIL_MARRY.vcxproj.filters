@@ -92,5 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="users.txt" />
+    <Text Include="items.txt" />
   </ItemGroup>
 </Project>

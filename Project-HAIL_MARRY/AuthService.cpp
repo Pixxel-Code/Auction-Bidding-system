@@ -4,7 +4,8 @@
 #include<iostream>
 #include <cstdlib>
 
-bool AuthService::signup(string username, string password, string role) {
+bool AuthService::signup(string username, string password, string role) 
+{
 
     if (Validator::isEmpty(username)) {
         cout << "Username cannot be empty\n";
@@ -27,6 +28,12 @@ bool AuthService::signup(string username, string password, string role) {
 
     User user(DBManager::getInstance().generateUserId(), username, password, role);
     DBManager::getInstance().addUser(user);
+
+    User existing = DBManager::getInstance().getUser(username.c_str());
+    if (!existing.getUsername().empty()) {
+        cout << "Username already taken\n";
+        return false;
+    }
 
     return true;
 }

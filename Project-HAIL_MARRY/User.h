@@ -10,6 +10,8 @@ private:
     string password;
     string role;
 
+    string watchlistData;
+
     double totalRating;
     int ratingCount;
 
@@ -25,4 +27,11 @@ public:
     void addRating(double rating);
     double getTotalRating();
     int getRatingCount();
+
+    string getWatchlistData();
+    void setWatchlistData(string data);
+    void addToWatchlist(int itemId);
+    void removeFromWatchlist(int itemId);
+    bool isWatching(int itemId);
+    int* getWatchlist(int& count);
 };

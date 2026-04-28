@@ -4,5 +4,5 @@
 
 class ItemService {
 public:
-    static void createItem(std::string title, double price, int sellerId, std::string category, User currentUser);
+    static void createItem(std::string title, double price, int sellerId, std::string category, User currentUser, int durationSeconds = 3600);
 };

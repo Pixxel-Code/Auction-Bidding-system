@@ -13,4 +13,6 @@ public:
     // ADMIN ACTIONS (WITH ROLE CHECK)
     static bool deleteUser(int id, User currentUser);
     static bool deleteItem(int id, User currentUser);
+    static bool rateUser(int raterId, int targetId, double rating);
+    static double getReputation(int userId);
 };

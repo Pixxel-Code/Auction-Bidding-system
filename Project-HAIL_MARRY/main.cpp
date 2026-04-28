@@ -16,6 +16,7 @@ int main() {
     db.loadUsers();
     db.loadItems();
     db.loadBids();
+    db.loadNotifications();
 
     cout << "Data Loaded\n";
 
@@ -114,7 +115,6 @@ int main() {
             << endl;
     }
 
-    // ==============================
 
     // 📊 VIEW BIDS
     cout << "\n--- BIDS ---\n";
@@ -126,6 +126,34 @@ int main() {
             << " Amount: " << bids[i].getAmount()
             << endl;
     }
+
+    // WATCHLIST TEST 
+    cout << "\n-- WATCHLIST TEST --\n";
+    User buyer = AuthService::login("user1", "123");
+    Item* allItems = db.getAllItems(count);
+
+    // Watch item
+    buyer.addToWatchlist(allItems[0].getId());
+    db.updateUser(buyer);
+    cout << "user1 watching item: " << allItems[0].getId() << "\n";
+
+    // Check watchlist
+    int wCount = 0;
+    int* watched = buyer.getWatchlist(wCount);
+    cout << "Watchlist count: " << wCount << "\n";
+    for (int i = 0; i < wCount; i++)
+        cout << "Watching item ID: " << watched[i] << "\n";
+    delete[] watched;
+
+    // ===== RATING TEST =====
+    cout << "\n--- RATING TEST ---\n";
+    User seller = AuthService::login("user2", "123");
+
+    AdminService::rateUser(buyer.getId(), seller.getId(), 5.0);
+    AdminService::rateUser(buyer.getId(), seller.getId(), 6.0); // invalid
+    AdminService::rateUser(buyer.getId(), buyer.getId(), 4.0);  // self rate
+
+    cout << "Seller reputation: " << AdminService::getReputation(seller.getId()) << "\n";
 
     cout << "\n===== SYSTEM END =====\n";
 

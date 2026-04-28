@@ -1,4 +1,5 @@
 #include "AdminService.h"
+#include"notification.h"
 #include<iostream>
 
 // VIEW
@@ -46,8 +47,43 @@ bool AdminService::deleteItem(int id, User currentUser) {
 
     db.rewriteItemsFile();
     db.rewriteBidsFile();
-
     cout << "Item deleted successfully\n";
 
     return true;
+}
+bool AdminService::rateUser(int raterId, int targetId, double rating) {
+    if (raterId == targetId) {
+        cout << "Cannot rate yourself\n";
+        return false;
+    }
+    if (rating < 1.0 || rating > 5.0) {
+        cout << "Rating must be between 1 and 5\n";
+        return false;
+    }
+
+    DBManager& db = DBManager::getInstance();
+    int count = 0;
+    User* users = db.getAllUsers(count);
+
+    for (int i = 0; i < count; i++) {
+        if (users[i].getId() == targetId) {
+            users[i].addRating(rating);
+            db.updateUser(users[i]);
+            db.addNotification(Notification(targetId,
+                "You received a new rating: " + to_string(rating).substr(0, 3) + "/5"));
+            cout << "Rating submitted successfully\n";
+            return true;
+        }
+    }
+    cout << "User not found\n";
+    return false;
+}
+
+double AdminService::getReputation(int userId) {
+    int count = 0;
+    User* users = DBManager::getInstance().getAllUsers(count);
+    for (int i = 0; i < count; i++)
+        if (users[i].getId() == userId)
+            return users[i].getReputation();
+    return 0.0;
 }

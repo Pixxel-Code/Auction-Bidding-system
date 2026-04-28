@@ -18,7 +18,7 @@ private:
 
 public:
     Item();
-    Item(int id, string t, double b, int seller,string category);
+    Item(int id, string t, double b, int seller,string category, int durationSeconds = 3600);
 
     void updatePrice(double newPrice);
     double getCurrentPrice();
@@ -28,7 +28,12 @@ public:
     int getSellerId();
     string getCategory();
     void setCategory(string cat);
+    int    getDuration() const;
+    time_t getStartTime() const;
+    void   setStartTime(time_t t);
+    void   setDuration(int secs);
+    int    getSecondsRemaining() const;
 
 
-    bool isExpired();
+    bool isExpired() const;
 };
